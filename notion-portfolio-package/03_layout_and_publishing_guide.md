@@ -4,7 +4,7 @@ A step-by-step guide for a first Notion portfolio. Everything here works on Noti
 
 **What is ready:** the text (`01_homepage.md`, `02_inventoryiq_case_study.md`) and four genuine screenshots (`screenshots/`) of the running app on synthetic demonstration data.
 
-**What you still supply:** the demo-video link (after you upload it) and your contact details (section 5).
+**What you still supply:** your contact details, if you want them shown (section 5).
 
 Notion does not import Markdown layouts exactly. Paste the text, then arrange images and columns by hand as described below. This takes about 20 minutes.
 
@@ -44,13 +44,13 @@ Notion does not import Markdown layouts exactly. Paste the text, then arrange im
 | Images | Only the four provided screenshots. No stock photos or AI images. |
 | Emoji and badges | None |
 
-## 4. Add the demo video (after you upload it)
+## 4. Add the demo video
 
-The silent walkthrough is `demo-video/inventoryiq_demo_synthetic.webm` (synthetic data).
+The demo is on YouTube: **https://youtu.be/QG3kbCwfc0U** (52 seconds, synthetic data).
 
-1. Upload it yourself to YouTube (set **Unlisted** if you prefer), Loom or Google Drive (set "anyone with the link").
-2. In the case study, under **Links**, type `/video` and paste the video URL, or simply link the text **Watch Demonstration**.
-3. Use `demo-video/thumbnail.png` as the YouTube thumbnail if asked.
+1. In the case study, put the cursor in the **Visual proof** section, under the four screenshots.
+2. Type `/video`, choose **Embed link**, and paste `https://youtu.be/QG3kbCwfc0U`. Notion shows a playable video.
+3. The **Watch Demonstration** link in the Links section already points to the same URL.
 
 ## 5. Links
 
@@ -58,7 +58,7 @@ The silent walkthrough is `demo-video/inventoryiq_demo_synthetic.webm` (syntheti
 |---|---|
 | GitHub | Already in the text: `https://github.com/harjotsandhu24/inventoryiq-supply-chain-analytics`. It works for visitors only after the repository is public. |
 | Excel workbook | Already in the text, pointing to the synthetic workbook on GitHub. It also works for visitors only after the repository is public. |
-| Demo video | **Not in the text.** After you upload the video, add a line **Watch Demonstration** under Links, or embed it with `/video` (section 4). |
+| Demo video | Already in the text: `https://youtu.be/QG3kbCwfc0U`. Embed it with `/video` as described in section 4. |
 | Contact | Add your email or LinkedIn directly in Notion, at the bottom of the homepage, if you want it shown. |
 
 Publish the Notion pages only after the repository is public, so the GitHub and Excel links work for visitors.

@@ -10,7 +10,7 @@ An inventory planning system that uses historical sales analysis, demand forecas
 
 **How it works:** sales history → demand forecast → safety stock and reorder point → purchase recommendation (case packs, minimum orders, supplier capacity, budget) → scenario comparison.
 
-**[Code](src/inventoryiq/)** · **[Methodology](docs/methodology.md)** · **[SQL analysis](sql/README.md)** · **[Excel demo workbook](deliverables/synthetic/InventoryIQ_Analysis.xlsx)** · **[Run it locally](#run-it-locally)**
+**[Watch Demo Video](https://youtu.be/QG3kbCwfc0U)** · **[Code](src/inventoryiq/)** · **[Methodology](docs/methodology.md)** · **[SQL analysis](sql/README.md)** · **[Excel demo workbook](deliverables/synthetic/InventoryIQ_Analysis.xlsx)** · **[Run it locally](#run-it-locally)**
 
 ---
 
@@ -94,7 +94,7 @@ InventoryIQ runs **locally**. There is no hosted live demo, and no paid services
 Requirements: Node.js 20.9+ and, for the analytics pipeline, Python 3.12+.
 
 ```bash
-git clone https://github.com/<your-account>/inventoryiq-supply-chain-analytics.git
+git clone https://github.com/harjotsandhu24/inventoryiq-supply-chain-analytics.git
 cd inventoryiq-supply-chain-analytics/app
 npm ci
 npm run build

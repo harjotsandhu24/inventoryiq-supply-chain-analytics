@@ -7,7 +7,7 @@ Files that `git add -A` would stage at the last audit: 217 files, 9.2 MB uncompr
 | `.github/workflows/ci.yml` | 1,729 | OK |
 | `.gitignore` | 1,178 | OK |
 | `LICENSE` | 1,070 | OK |
-| `README.md` | 10,440 | OK |
+| `README.md` | 10,496 | OK |
 | `THIRD_PARTY_DATA.md` | 2,269 | OK |
 | `app/eslint.config.mjs` | 331 | OK |
 | `app/fixtures/demo-data/evaluation.json` | 21,025 | OK |
@@ -132,7 +132,7 @@ Files that `git add -A` would stage at the last audit: 217 files, 9.2 MB uncompr
 | `app/vitest.config.ts` | 263 | OK |
 | `deliverables/synthetic/InventoryIQ_Analysis.xlsx` | 89,016 | OK |
 | `demo-video/inventoryiq_demo_synthetic.webm.manifest.json` | 270 | OK |
-| `demo-video/recording_plan.md` | 4,698 | OK |
+| `demo-video/recording_plan.md` | 3,788 | OK |
 | `demo-video/thumbnail.png` | 429,635 | OK |
 | `docs/assumptions.md` | 3,513 | OK |
 | `docs/data_access.md` | 2,313 | OK |
@@ -154,8 +154,8 @@ Files that `git add -A` would stage at the last audit: 217 files, 9.2 MB uncompr
 | `excel/power_query/replenishment_recommendations.pq` | 1,375 | OK |
 | `excel/power_query/simulation_summary.pq` | 974 | OK |
 | `notion-portfolio-package/01_homepage.md` | 663 | OK |
-| `notion-portfolio-package/02_inventoryiq_case_study.md` | 2,931 | OK |
-| `notion-portfolio-package/03_layout_and_publishing_guide.md` | 5,436 | OK |
+| `notion-portfolio-package/02_inventoryiq_case_study.md` | 3,030 | OK |
+| `notion-portfolio-package/03_layout_and_publishing_guide.md` | 5,344 | OK |
 | `notion-portfolio-package/screenshots/01-overview.png` | 323,493 | OK |
 | `notion-portfolio-package/screenshots/02-forecast.png` | 444,441 | OK |
 | `notion-portfolio-package/screenshots/03-planner.png` | 429,635 | OK |

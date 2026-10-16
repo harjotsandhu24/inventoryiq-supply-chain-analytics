@@ -4,7 +4,8 @@
 
 | Item | Value |
 |---|---|
-| File | `demo-video/inventoryiq_demo_synthetic.webm` (git-ignored; host it separately, see below) |
+| Published | **https://youtu.be/QG3kbCwfc0U** (YouTube, uploaded by the owner) |
+| File | `demo-video/inventoryiq_demo_synthetic.webm` (git-ignored; the source of the YouTube upload) |
 | Length | 52.2 seconds, 1440 x 900, VP8 WebM, about 5 MB |
 | Data | **Synthetic demonstration data.** No Walmart M5 records appear in any frame. Provenance and hash: `inventoryiq_demo_synthetic.webm.manifest.json`. |
 | Audio | None. It is silent, with on-screen captions. |
@@ -47,24 +48,10 @@ No narrated video exists. To add a voice-over, record the screen yourself while 
 
 Only say numbers that are on screen. Say "synthetic" for the demo data and "simulated" for costs.
 
-## Publishing the video (only after you approve)
+## Publishing status
 
-**Recommended: one unlisted YouTube upload, used by both GitHub and Notion.** No website or hosting of your own is needed.
+- **YouTube:** https://youtu.be/QG3kbCwfc0U
+- **GitHub README:** linked as **Watch Demo Video** in the quick links at the top.
+- **Notion:** linked in the case study's Links section. Embed it with `/video` (see `notion-portfolio-package/03_layout_and_publishing_guide.md`, section 4).
 
-1. Upload `demo-video/inventoryiq_demo_synthetic.webm` at youtube.com/upload. YouTube accepts WebM.
-   - Visibility: **Unlisted**.
-   - Title: *InventoryIQ – Inventory Forecasting & Replenishment (synthetic demo)*.
-   - Description: *Silent walkthrough of a local inventory planning app running on synthetic demonstration data.*
-   - Custom thumbnail (optional): `demo-video/thumbnail.png`.
-2. **Notion:** in the case study's Links section, type `/video` and paste the YouTube URL. Notion embeds a player.
-3. **GitHub README:** GitHub cannot embed YouTube players, so add a text link. In the quick-links line near the top, append the following, replacing `VIDEO_ID`:
-
-   ```markdown
-    · **[Watch the 52-second demo](https://www.youtube.com/watch?v=VIDEO_ID)**
-   ```
-
-   Commit and push that one-line change.
-
-**GitHub-only alternative:** open `README.md` on github.com, click edit, and drag the `.webm` file into the editor. GitHub uploads it as an attachment (up to 10 MB on free plans) and shows an inline player in the README. Notion can then only link to the repository, not embed the video.
-
-Video files are git-ignored (`*.webm`, `*.mp4`). Never commit the file itself; link to the hosted copy.
+Video files stay git-ignored (`*.webm`, `*.mp4`). The repository links to the hosted copy.

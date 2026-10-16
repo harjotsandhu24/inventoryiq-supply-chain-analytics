@@ -46,6 +46,7 @@ Validate the planner with genuine supplier lead times, inventory snapshots and p
 
 ## Links
 
+- **[Watch Demonstration](https://youtu.be/QG3kbCwfc0U)** (52-second walkthrough, synthetic data)
 - **[View GitHub](https://github.com/harjotsandhu24/inventoryiq-supply-chain-analytics)**
 - **[Download Excel Analysis](https://github.com/harjotsandhu24/inventoryiq-supply-chain-analytics/blob/main/deliverables/synthetic/InventoryIQ_Analysis.xlsx)** (synthetic demonstration workbook)
 
