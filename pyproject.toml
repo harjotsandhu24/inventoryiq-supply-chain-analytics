@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "inventoryiq"
+version = "1.0.0"
+description = "InventoryIQ - Inventory Forecasting & Replenishment Intelligence"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Harjot Sandhu" }]
+requires-python = ">=3.12"
+dependencies = [
+  "numpy>=2.2",
+  "pandas>=2.2",
+  "duckdb>=1.2",
+  "pyarrow>=18",
+  "scikit-learn>=1.6",
+  "scipy>=1.14",
+  "openpyxl>=3.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.9", "formulas>=1.2"]
+
+[project.scripts]
+inventoryiq = "inventoryiq.pipeline:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+  "m5: requires the licensed M5 raw files in data/raw (skipped when absent)",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "NPY", "PD002", "SIM"]
+ignore = ["E501", "SIM108"]
+
+[tool.ruff.format]
+quote-style = "double"

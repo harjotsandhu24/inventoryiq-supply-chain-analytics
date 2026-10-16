@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #172d47;
+  --color-navy-700: #22405f;
+  --color-navy-50: #e8edf3;
+  --color-canvas: #f1f4f7;
+  --color-teal: #217e83;
+  --color-teal-700: #1a6569;
+  --color-teal-50: #e6f2f2;
+  --color-ink: #3e4b5b;
+  --color-muted: #66727f;
+  --color-line: #d9e0e7;
+  --color-risk-high: #b42318;
+  --color-risk-high-bg: #fdecea;
+  --color-risk-med: #a15c07;
+  --color-risk-med-bg: #fef4e4;
+  --color-risk-low: #1f6f5c;
+  --color-risk-low-bg: #e7f4ef;
+  --font-sans: "Segoe UI", "Inter", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Cascadia Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Consistent, visible keyboard focus for every interactive element */
+:where(a, button, input, select, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+input[type="range"] {
+  accent-color: var(--color-teal);
+}
+
+input[type="range"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

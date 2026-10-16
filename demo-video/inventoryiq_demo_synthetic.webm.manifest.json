@@ -1,0 +1,6 @@
+{
+  "dataSource": "synthetic",
+  "sourceLabel": "Synthetic demo data (not Walmart data)",
+  "recordedWith": "app/scripts/record-demo.mjs (Playwright video, 1440x900, silent with captions)",
+  "sha256": "833ea5bb4b2e72d9addb1047d10126cde5c04ead9ce1de78c95d9f01e7183c8e"
+}

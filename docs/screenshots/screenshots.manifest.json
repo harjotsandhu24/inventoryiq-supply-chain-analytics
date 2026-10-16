@@ -1,0 +1,14 @@
+{
+  "dataSource": "synthetic",
+  "sourceLabel": "Synthetic demo data (not Walmart data)",
+  "planningDate": "2026-04-27",
+  "capturedWith": "app/scripts/capture-screenshots.mjs (Playwright, Chromium, 1440x900 @2x)",
+  "files": {
+    "01-overview.png": "496571231a3e5a9a9e6af88bc307cec9cd3ce445683431b7d1428b5f137c34d8",
+    "02-forecast.png": "01cb2310d24697abe08a89c0518fe64c44e4bb8ca4caaf4d83e72ec49cf1597c",
+    "03-planner.png": "d8a2bef4988b3b88bbc789fe386ffca53b06db1ebde0cdb77135075e514fbd43",
+    "03b-planner-detail-full.png": "97c9db15a9269bfb5ceb2dc31602236857820abaf64366e000296e817359e9ef",
+    "04-scenario.png": "e2d018a5b9eb52d93fdf55d3b9b86c85070f0eb8486d99fa8c7be4c52559113b",
+    "04b-scenario-full.png": "87e9eab9761d3d8de19362f0e710a1b8a5bec07c7b28eaec96d3145f597058c6"
+  }
+}

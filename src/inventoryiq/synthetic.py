@@ -1,0 +1,133 @@
+"""Generate a clearly labeled SYNTHETIC dataset in the M5 file format.
+
+Used for continuous integration and for the public demo fixture, so the
+repository never needs to redistribute the licensed M5 files. Item ids carry a
+``SYN_`` prefix and every number is drawn from simple stochastic processes;
+nothing is derived from Walmart data.
+"""
+
+from __future__ import annotations
+
+import argparse
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+DEPTS = {
+    "FOODS": ["FOODS_1", "FOODS_2", "FOODS_3"],
+    "HOBBIES": ["HOBBIES_1", "HOBBIES_2"],
+    "HOUSEHOLD": ["HOUSEHOLD_1", "HOUSEHOLD_2"],
+}
+STORES = {"CA_1": "CA", "CA_2": "CA", "TX_1": "TX"}
+
+
+SYNTHETIC_START = "2021-01-02"  # a Saturday; deliberately unrelated to the M5 date range
+
+
+def make_calendar(n_days: int, start: str = SYNTHETIC_START) -> pd.DataFrame:
+    dates = pd.date_range(start, periods=n_days, freq="D")
+    week_idx = np.arange(n_days) // 7
+    wm = 12101 + (week_idx // 52) * 100 + (week_idx % 52)
+    cal = pd.DataFrame(
+        {
+            "date": dates.strftime("%Y-%m-%d"),
+            "wm_yr_wk": wm,
+            "weekday": dates.day_name(),
+            "wday": ((dates.dayofweek + 2) % 7) + 1,
+            "month": dates.month,
+            "year": dates.year,
+            "d": [f"d_{i}" for i in range(1, n_days + 1)],
+        }
+    )
+    ev = np.where(
+        (dates.month == 12) & (dates.day == 25),
+        "SyntheticWinterHoliday",
+        np.where((dates.month == 7) & (dates.day == 4), "SyntheticSummerHoliday", None),
+    )
+    cal["event_name_1"] = ev
+    cal["event_type_1"] = np.where(pd.notna(ev), "National", None)
+    cal["event_name_2"] = None
+    cal["event_type_2"] = None
+    for st in ("CA", "TX", "WI"):
+        cal[f"snap_{st}"] = ((dates.day >= 1) & (dates.day <= 10)).astype(int)
+    return cal
+
+
+def generate(out_dir: Path, items_per_dept: int = 9, n_days: int = 1941, seed: int = 7) -> Path:
+    rng = np.random.default_rng(seed)
+    cal_days = n_days + 28
+    cal = make_calendar(cal_days)
+    dow = cal["wday"].to_numpy()[:n_days]
+    t = np.arange(n_days)
+    rows, price_rows = [], []
+    weeks = cal["wm_yr_wk"].to_numpy()
+    uweeks = np.unique(weeks)
+    for cat, depts in DEPTS.items():
+        for dept in depts:
+            for k in range(1, items_per_dept + 1):
+                item = f"SYN_{dept}_{k:03d}"
+                base_price = float(np.round(rng.uniform(1.0, 20.0 if cat != "FOODS" else 8.0), 2))
+                pattern = rng.choice(
+                    ["smooth", "intermittent", "lumpy", "erratic"], p=[0.4, 0.3, 0.15, 0.15]
+                )
+                intro_week = int(rng.choice([0, 0, 0, rng.integers(0, 150)]))
+                for store, state in STORES.items():
+                    level = {
+                        "smooth": rng.uniform(2, 25),
+                        "erratic": rng.uniform(1, 8),
+                        "intermittent": rng.uniform(0.1, 0.6),
+                        "lumpy": rng.uniform(0.05, 0.3),
+                    }[pattern]
+                    season = 1 + 0.25 * np.isin(dow, [1, 2])  # weekend lift
+                    trend = 1 + rng.uniform(-0.2, 0.3) * t / n_days
+                    lam = level * season * trend
+                    if pattern in ("smooth", "erratic"):
+                        disp = 50 if pattern == "smooth" else 1.5
+                        y = rng.negative_binomial(disp, disp / (disp + lam))
+                    else:
+                        occur = rng.random(n_days) < lam
+                        size = rng.geometric(0.6 if pattern == "intermittent" else 0.25, n_days)
+                        y = occur * size
+                    start_day = intro_week * 7
+                    y[:start_day] = 0
+                    rows.append([f"{item}_{store}", item, dept, cat, store, state, *y.tolist()])
+                    promo = rng.random(len(uweeks)) < 0.08
+                    for w_i, w in enumerate(uweeks):
+                        if w_i < intro_week:
+                            continue
+                        price = base_price * (0.8 if promo[w_i] else 1.0)
+                        price_rows.append((store, item, int(w), round(price, 2)))
+    cols = ["id", "item_id", "dept_id", "cat_id", "store_id", "state_id"] + [
+        f"d_{i}" for i in range(1, n_days + 1)
+    ]
+    ev = pd.DataFrame(rows, columns=cols)
+    ev["id"] = ev["id"] + "_evaluation"
+    va = ev.drop(columns=[f"d_{i}" for i in range(n_days - 27, n_days + 1)]).copy()
+    va["id"] = va["id"].str.replace("_evaluation", "_validation")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    cal.to_csv(out_dir / "calendar.csv", index=False)
+    ev.to_csv(out_dir / "sales_train_evaluation.csv", index=False)
+    va.to_csv(out_dir / "sales_train_validation.csv", index=False)
+    pd.DataFrame(price_rows, columns=["store_id", "item_id", "wm_yr_wk", "sell_price"]).to_csv(
+        out_dir / "sell_prices.csv", index=False
+    )
+    (out_dir / "README.md").write_text(
+        "# SYNTHETIC demo data\n\nGenerated by `python -m inventoryiq.synthetic`. These files mimic the M5 "
+        "file layout only. All values are random draws; none are Walmart data.\n"
+    )
+    return out_dir
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument(
+        "--out", type=Path, default=Path(__file__).resolve().parents[2] / "data" / "synthetic"
+    )
+    ap.add_argument("--items-per-dept", type=int, default=9)
+    args = ap.parse_args()
+    print(generate(args.out, args.items_per_dept))
+
+
+if __name__ == "__main__":
+    main()

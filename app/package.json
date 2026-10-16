@@ -1,0 +1,42 @@
+{
+  "name": "inventoryiq-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "InventoryIQ - Inventory Forecasting & Replenishment Intelligence (local planning application)",
+  "author": "Harjot Sandhu",
+  "license": "MIT",
+  "scripts": {
+    "predev": "node scripts/ensure-data.mjs",
+    "dev": "next dev -p 3000",
+    "prebuild": "node scripts/ensure-data.mjs",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "data:demo": "node scripts/ensure-data.mjs --force-demo",
+    "screenshots": "node scripts/capture-screenshots.mjs"
+  },
+  "dependencies": {
+    "next": "16.3.7",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "recharts": "3.8.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "@tailwindcss/postcss": "4.1.18",
+    "@types/node": "22.20.5",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.3",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.7",
+    "tailwindcss": "4.1.18",
+    "typescript": "5.9.3",
+    "vitest": "3.2.7"
+  },
+  "engines": {
+    "node": ">=20.9"
+  }
+}

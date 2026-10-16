@@ -1,0 +1,63 @@
+# ---- Licensed source data: NEVER commit (M5 terms: competition/academic/non-commercial use) ----
+data/raw/
+*.csv.zip
+m5-forecasting-accuracy.zip
+
+# ---- Generated data (rebuild with the pipeline) ----
+data/processed/
+data/synthetic/
+*.duckdb
+*.duckdb.wal
+
+# M5-derived outputs stay local
+app/public/data/
+deliverables/m5/
+deliverables/*/csv/
+reports/synthetic/
+# Detailed M5-derived aggregate reports: excluded pending the owner's data-rights review
+reports/m5/
+docs/results.md
+
+# Private reference media captured on M5 data (product ids visible) - never publish
+private/
+
+# ---- Python ----
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+
+# ---- Node / Next.js ----
+node_modules/
+app/.next/
+app/out/
+app/next-env.d.ts
+app/*.tsbuildinfo
+app/test-results/
+app/playwright-report/
+app/blob-report/
+app/playwright/.cache/
+
+# ---- Environment, secrets, OS, editors ----
+.env
+.env.*
+!.env.example
+*.pem
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.log
+*.tmp
+~$*.xlsx
+
+# ---- Demo video raw captures (final video is linked, not committed) ----
+demo-video/raw/
+*.webm
+*.mp4
