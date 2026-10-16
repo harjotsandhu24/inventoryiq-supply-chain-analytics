@@ -8,7 +8,9 @@ An inventory planning system that uses historical sales analysis, demand forecas
 
 <sub>Screenshot of the running application on **synthetic demonstration data**. The findings below come from a separate analysis of the Walmart M5 dataset, which is not redistributed here.</sub>
 
-**[Methodology](docs/methodology.md)** · **[SQL analysis](sql/README.md)** · **[Excel demo workbook](deliverables/synthetic/InventoryIQ_Analysis.xlsx)** · **[Run it locally](#run-it-locally)** · Demo video: *link will be added once the video is hosted*
+**How it works:** sales history → demand forecast → safety stock and reorder point → purchase recommendation (case packs, minimum orders, supplier capacity, budget) → scenario comparison.
+
+**[Code](src/inventoryiq/)** · **[Methodology](docs/methodology.md)** · **[SQL analysis](sql/README.md)** · **[Excel demo workbook](deliverables/synthetic/InventoryIQ_Analysis.xlsx)** · **[Run it locally](#run-it-locally)**
 
 ---
 
@@ -45,7 +47,7 @@ All four screens below are genuine captures of the running app on synthetic demo
 
 ## Key findings
 
-From my analysis of the Walmart M5 dataset with simulated suppliers, inventory and costs. The dataset's terms ("Competition Use, Academic, Non-Commercial Use") do not clearly cover publishing analysis results, so **the numerical results are kept private**. Anyone with the licensed data can reproduce them (`python -m inventoryiq.pipeline --source m5`, then `python scripts/build_results_md.py`).
+From my analysis of the Walmart M5 sales dataset, combined with **simulated** suppliers, inventory and costs. These are model results, not a description of Walmart's actual operations. Exact figures are kept private; the summary below is qualitative. Anyone with authorized access to the dataset can reproduce the full results locally (`python -m inventoryiq.pipeline --source m5`, then `python scripts/build_results_md.py`).
 
 1. **Forecasting helped, but only modestly.** On an untouched 28-day holdout, choosing a method per product clearly beat a seasonal-naive benchmark, but was only marginally better than a well-tuned moving average or gradient boosting. Across all ten stores, a single moving average did slightly better than per-product selection. Prediction intervals were too narrow.
 2. **The first forecast-based policy failed its pre-planned test.** Its economic order quantities overloaded simulated supplier capacity and starved other products.

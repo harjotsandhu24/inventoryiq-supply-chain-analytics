@@ -13,7 +13,7 @@ The MIT License in `LICENSE` (copyright (c) 2026 Harjot Sandhu) covers **only th
   - screenshots and video of the application running on M5 data.
 
   All of these are git-ignored and stay local.
-- **Numerical results kept private:** forecast accuracy, simulation outcomes, costs and data counts from the author's analysis stay private (`private/`, `reports/m5/`, `docs/results.md`) until publication of aggregate results is confirmed to be permitted.
+- **Numerical results kept private:** forecast accuracy, simulation outcomes, costs and data counts from the author's analysis stay private (`private/`, `reports/m5/`, `docs/results.md`).
 - **In this repository:** descriptions of the dataset's published structure (for example the number of series and the date range) and qualitative conclusions from the author's own non-commercial analysis, without figures. This is not a claim of permission to redistribute the dataset or results derived from it.
 
 ## Synthetic demonstration data

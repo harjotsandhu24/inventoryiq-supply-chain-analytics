@@ -10,10 +10,8 @@ An interactive inventory planning system that forecasts demand, identifies stock
 
 ![InventoryIQ Replenishment Planner (synthetic demonstration data)](screenshots/03-planner.png)
 
-**[Read the case study](02_inventoryiq_case_study.md)**  ·  [GitHub]({{GITHUB_URL}})
+**[Read the case study](02_inventoryiq_case_study.md)**  ·  [GitHub](https://github.com/harjotsandhu24/inventoryiq-supply-chain-analytics)
 
 ---
 
 *More projects are in progress and will be added when complete.*
-
-Contact: {{EMAIL_OR_LINKEDIN}}

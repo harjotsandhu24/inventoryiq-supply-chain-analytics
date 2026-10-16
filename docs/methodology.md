@@ -1,6 +1,6 @@
 # Methodology
 
-This document explains how InventoryIQ turns daily sales history into purchasing decisions, and how each step was validated. Assumptions are in [assumptions.md](assumptions.md). Headline results are in the [README](../README.md). The detailed result tables (`docs/results.md`, `reports/m5/`) are generated locally from the licensed data by `scripts/build_results_md.py` and are not published, pending a data-rights review.
+This document explains how InventoryIQ turns daily sales history into purchasing decisions, and how each step was validated. Assumptions are in [assumptions.md](assumptions.md). Headline results are in the [README](../README.md). The detailed result tables (`docs/results.md`, `reports/m5/`) are generated locally from the licensed data by `scripts/build_results_md.py` and are not published.
 
 ## 1. Data lineage
 

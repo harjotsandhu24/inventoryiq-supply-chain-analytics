@@ -4,7 +4,7 @@ A step-by-step guide for a first Notion portfolio. Everything here works on Noti
 
 **What is ready:** the text (`01_homepage.md`, `02_inventoryiq_case_study.md`) and four genuine screenshots (`screenshots/`) of the running app on synthetic demonstration data.
 
-**What you still supply:** the links marked `{{...}}` (section 5).
+**What you still supply:** the demo-video link (after you upload it) and your contact details (section 5).
 
 Notion does not import Markdown layouts exactly. Paste the text, then arrange images and columns by hand as described below. This takes about 20 minutes.
 
@@ -52,16 +52,16 @@ The silent walkthrough is `demo-video/inventoryiq_demo_synthetic.webm` (syntheti
 2. In the case study, under **Links**, type `/video` and paste the video URL, or simply link the text **Watch Demonstration**.
 3. Use `demo-video/thumbnail.png` as the YouTube thumbnail if asked.
 
-## 5. Replace the placeholders
+## 5. Links
 
-| Placeholder | Replace with | Available when |
-|---|---|---|
-| `{{GITHUB_URL}}` | `https://github.com/<your-account>/inventoryiq-supply-chain-analytics` | After you approve and push the repository |
-| `{{VIDEO_URL}}` | Your hosted video link | After you upload the video |
-| `{{EXCEL_URL}}` | The GitHub file link to `deliverables/synthetic/InventoryIQ_Analysis.xlsx` (synthetic demo workbook) | After the repository is public |
-| `{{EMAIL_OR_LINKEDIN}}` | Your preferred contact | Now |
+| Link | Status |
+|---|---|
+| GitHub | Already in the text: `https://github.com/harjotsandhu24/inventoryiq-supply-chain-analytics`. It works for visitors only after the repository is public. |
+| Excel workbook | Already in the text, pointing to the synthetic workbook on GitHub. It also works for visitors only after the repository is public. |
+| Demo video | **Not in the text.** After you upload the video, add a line **Watch Demonstration** under Links, or embed it with `/video` (section 4). |
+| Contact | Add your email or LinkedIn directly in Notion, at the bottom of the homepage, if you want it shown. |
 
-Never publish a page that still shows `{{...}}`. Remove any link whose destination does not exist yet.
+Publish the Notion pages only after the repository is public, so the GitHub and Excel links work for visitors.
 
 ## 6. Publish
 

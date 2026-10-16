@@ -43,13 +43,28 @@ No narrated video exists. To add a voice-over, record the screen yourself while 
 | 4 | 0:24-0:34 | Calculation table | "Safety stock covers forecast error and supplier lead-time variability. Below the reorder point, it orders up to the target in whole cases." |
 | 5 | 0:34-0:42 | What-if sliders | "If I ask for higher availability, or the supplier slows down, the recommendation recalculates immediately." |
 | 6 | 0:42-0:55 | Scenario Lab: Protect Availability, then Limit Spending | "Across all products, higher availability costs more inventory, and a budget cut defers lower-priority orders, so expected shortages rise." |
-| 7 | 0:55-1:05 | Historical backtest | "I also replayed history. In my Walmart analysis, a forecast-based policy needed order sizes that fit supplier capacity, and its cost advantage depended on order-processing costs." |
+| 7 | 0:55-1:05 | Historical backtest | "I also replayed history. In my simulation on historical Walmart sales, a forecast-based policy needed order sizes that fit supplier capacity, and its cost advantage depended on order-processing costs." |
 
 Only say numbers that are on screen. Say "synthetic" for the demo data and "simulated" for costs.
 
 ## Publishing the video (only after you approve)
 
-1. Upload the WebM (or the narrated version) yourself to YouTube (Unlisted is fine), Loom or Google Drive. YouTube accepts WebM directly.
-2. **README:** replace `Demo video: *link will be added once the video is hosted*` with `[Demo video](<your URL>)`.
-3. **Notion:** replace `{{VIDEO_URL}}` in `notion-portfolio-package/02_inventoryiq_case_study.md`, or embed it with `/video`.
-4. Do not commit video files to the repository (`*.webm` and `*.mp4` are git-ignored); link to the hosted copy instead.
+**Recommended: one unlisted YouTube upload, used by both GitHub and Notion.** No website or hosting of your own is needed.
+
+1. Upload `demo-video/inventoryiq_demo_synthetic.webm` at youtube.com/upload. YouTube accepts WebM.
+   - Visibility: **Unlisted**.
+   - Title: *InventoryIQ – Inventory Forecasting & Replenishment (synthetic demo)*.
+   - Description: *Silent walkthrough of a local inventory planning app running on synthetic demonstration data.*
+   - Custom thumbnail (optional): `demo-video/thumbnail.png`.
+2. **Notion:** in the case study's Links section, type `/video` and paste the YouTube URL. Notion embeds a player.
+3. **GitHub README:** GitHub cannot embed YouTube players, so add a text link. In the quick-links line near the top, append the following, replacing `VIDEO_ID`:
+
+   ```markdown
+    · **[Watch the 52-second demo](https://www.youtube.com/watch?v=VIDEO_ID)**
+   ```
+
+   Commit and push that one-line change.
+
+**GitHub-only alternative:** open `README.md` on github.com, click edit, and drag the `.webm` file into the editor. GitHub uploads it as an attachment (up to 10 MB on free plans) and shows an inline player in the README. Notion can then only link to the repository, not embed the video.
+
+Video files are git-ignored (`*.webm`, `*.mp4`). Never commit the file itself; link to the hosted copy.

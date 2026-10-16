@@ -38,7 +38,7 @@ I wanted to understand how inventory analysts turn sales data into purchasing de
 
 ## What I learned
 
-Better forecasts alone did not improve availability. In my analysis of Walmart sales, a forecast-based policy only matched a simple reorder rule's service once its order sizes were capped to fit supplier capacity. It then placed fewer, larger orders and held more inventory. Whether that saves money depends on what each order costs to process, so supplier constraints and order costs mattered as much as forecast accuracy.
+Better forecasts alone did not improve availability. In my simulation using historical Walmart sales (with simulated suppliers and costs), a forecast-based policy only matched a simple reorder rule's service once its order sizes were capped to fit supplier capacity. It then placed fewer, larger orders and held more inventory. Whether that saves money depends on what each order costs to process, so supplier constraints and order costs mattered as much as forecast accuracy.
 
 ## What I'd do next
 
@@ -46,8 +46,7 @@ Validate the planner with genuine supplier lead times, inventory snapshots and p
 
 ## Links
 
-- **[View GitHub]({{GITHUB_URL}})**
-- **[Watch Demonstration]({{VIDEO_URL}})**
-- **[Download Excel Analysis]({{EXCEL_URL}})**
+- **[View GitHub](https://github.com/harjotsandhu24/inventoryiq-supply-chain-analytics)**
+- **[Download Excel Analysis](https://github.com/harjotsandhu24/inventoryiq-supply-chain-analytics/blob/main/deliverables/synthetic/InventoryIQ_Analysis.xlsx)** (synthetic demonstration workbook)
 
 <sub>Findings come from the author's analysis of the Walmart M5 dataset (Kaggle) using simulated suppliers, inventory and costs; numerical results are kept private. Screenshots use synthetic data.</sub>

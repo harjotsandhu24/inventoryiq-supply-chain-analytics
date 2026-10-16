@@ -14,8 +14,8 @@ The competition's Rules page lists the data-access terms as **"Competition Use, 
 |---|---|
 | Raw M5 CSV files | **No.** `data/raw/` is git-ignored. |
 | Row-level M5-derived outputs (app JSON, recommendation CSVs, the M5 Excel workbook, the DuckDB database) | **No.** Generated locally and git-ignored. |
-| Detailed aggregate reports (`reports/m5/`, `docs/results.md`) | **No.** Generated locally and excluded pending the owner's data-rights review. |
-| Numerical findings from the M5 analysis | **No.** Kept private until publication is confirmed to be permitted; the README states qualitative conclusions only. |
+| Detailed aggregate reports (`reports/m5/`, `docs/results.md`) | **No.** Generated locally only. |
+| Numerical findings from the M5 analysis | **No.** Kept private; the README states qualitative conclusions only. |
 | Application screenshots and demo video | Yes, captured on **synthetic** data only (M5 captures are kept in the git-ignored `private/`) |
 | Synthetic demo data in M5 format (`SYN_` item ids, random draws) | Yes. The app runs on it out of the box. |
 
